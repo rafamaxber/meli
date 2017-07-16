@@ -1,14 +1,21 @@
 import Link from 'next/link'
 import MainLayout from '../components/MainLayout'
+import axios from 'axios'
 
-const Index = (props) => (
+const Items = (props) => (
   <MainLayout>
     <p>ITEMS</p>
     <Link href="/about">
-      <a>ITEMS</a>
+      <a>{props.data.author.name}</a>
     </Link>
-      {console.log(props.url.query.id)}
   </MainLayout>
 )
 
-export default Index
+Items.getInitialProps = async function (context) {
+  const { id } = context.query
+  const res = await axios.get(`http://localhost:4040/api/items/${id}`);
+  // Return properties
+  return { data: res.data }
+}
+
+export default Items
