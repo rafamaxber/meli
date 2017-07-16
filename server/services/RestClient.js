@@ -1,7 +1,8 @@
-
 function MercadoLibreApi() {
   this._client = require('axios')
-  this._apiUrl = `https://api.mercadolibre.com`;
+
+  this._apiUrl = 'https://api.mercadolibre.com';
+  this._siteId = 'MLA';
   this._id = ''
 }
 
@@ -14,11 +15,11 @@ MercadoLibreApi.prototype._getItemId = function() {
 }
 
 MercadoLibreApi.prototype.search = function(query) {
-  return this._client.get(`${this._apiUrl}/sites/MLA/search?q=${encodeURIComponent(query)}`)
+  return this._client.get(`${this._apiUrl}/sites/${this._siteId}/search?q=${encodeURIComponent(query)}`)
 }
 
-MercadoLibreApi.prototype.fetchItemById = function(id) {
-  this._setItemId(id)
+MercadoLibreApi.prototype.fetchItemById = function(itemId) {
+  this._setItemId(itemId)
 
   return this._client.all([
     this.getItemById(),
@@ -33,6 +34,5 @@ MercadoLibreApi.prototype.getItemById = function() {
 MercadoLibreApi.prototype.getDescriptionItemById = function() {
   return this._client.get(`${this._apiUrl}/items/${this._getItemId()}/description`)
 }
-
 
 module.exports = () => MercadoLibreApi;

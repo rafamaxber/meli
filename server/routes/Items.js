@@ -1,6 +1,11 @@
 const axios = require('axios')
+const next = require('../../client/node_modules/next')
 
 const ITEMS_LIMIT = 4  
+
+const dev = process.env.NODE_ENV !== 'production'
+const nextApp = next({ dev })
+const handle = nextApp.getRequestHandler()
 
 function getItems(obj) {
   return obj.results.map((item, index) => {
@@ -22,7 +27,7 @@ function getItems(obj) {
 module.exports = (app) => {
   
   const Api = new app.services.RestClient();
-
+  
   app.get('/api/items', function(req, res) {
     const query = req.query.q
     if (!query) {
@@ -72,6 +77,5 @@ module.exports = (app) => {
     })
     
   });
-
 
 }
