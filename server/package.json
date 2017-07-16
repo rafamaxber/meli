@@ -1,0 +1,29 @@
+{
+  "name": "meli-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rafael Bernardo <rafamaxber@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.1",
+    "consign": "^0.1.4",
+    "dotenv": "4.0.0",
+    "express": "4.15.2",
+    "express-validator": "3.2.0",
+    "memcached": "2.2.2",
+    "morgan": "^1.8.1",
+    "restify": "^5.0.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "3.3.0",
+    "nodemon": "^1.11.0",
+    "sinon": "2.1.0"
+  }
+}
