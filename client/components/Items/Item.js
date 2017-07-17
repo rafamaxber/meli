@@ -10,28 +10,34 @@ class Item extends PureComponent {
     super(props)
     this.state = {
       item: {},
-      loading: true
+      loading: true,
+      errors: ''
     }
   }
-  
+
   componentDidMount() {
     this.setState({ loading: true })
     fetchItemById(this.props.itemId)
       .then(res => {
         this.setState({item: res.data.item, loading: false})
       })
+      .catch(err => {
+        this.setState({ errors: true, items: [], loading: false })
+      })
+
   }
 
   render() {
+    if (this.state.errors) return <NotFound errors={this.state.errors} />
     if (this.state.loading) return <Loading />
     if (!this.state.item) return <NotFound />
     return (
       <div className="card-hero-item">
-    
+
         <figure className="card-hero-item-image-container">
           <img className="card-hero-item-image" src={this.state.item.picture} alt={this.state.item.title} title={this.state.item.title} />
         </figure>
-        
+
         <div className="card-hero-item-info">
           <div className="card-item-sold-info">
             <span className="card-item-condition">{this.state.item.condition}</span>
@@ -62,7 +68,7 @@ class Item extends PureComponent {
 }
 
 // const Item = ({props}) => (
-  
+
 // )
 
 export default Item

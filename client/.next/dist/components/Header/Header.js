@@ -64,7 +64,7 @@ var Logo = function Logo() {
       fileName: _jsxFileName,
       lineNumber: 17
     }
-  }, _react2.default.createElement('img', { src: '/static/img/Logo_ML.png', alt: 'Mercado Livre', title: 'Mercado Livre', 'data-jsx-ext': _style3.LogoStyle.__scopedHash,
+  }, _react2.default.createElement('img', { src: '/static/img/Logo_ML.png', alt: 'Mercado Libre', title: 'Mercado Libre', 'data-jsx-ext': _style3.LogoStyle.__scopedHash,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18

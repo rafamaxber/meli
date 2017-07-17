@@ -13,4 +13,11 @@ export const LogoStyle = `
     font-size: 0;
     vertical-align: middle;
   }
+  @media (max-width: 530px) {
+    .logo {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
 `

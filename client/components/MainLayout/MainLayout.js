@@ -6,10 +6,9 @@ import { MainLayoutStyleGlobal } from './styleGlobal'
 const MainLayout = (props) => (
   <div>
     <Head>
-      <title>Mercado Livre</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <title>Mercado Libre</title>
     </Head>
-    
+
     <div className="container-site">
       <Header />
       {props.breadCrumb}

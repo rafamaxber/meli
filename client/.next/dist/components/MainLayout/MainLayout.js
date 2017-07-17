@@ -45,22 +45,18 @@ var MainLayout = function MainLayout(props) {
       fileName: _jsxFileName,
       lineNumber: 9
     }
-  }, 'Mercado Livre'), _react2.default.createElement('meta', { name: 'viewport', content: 'initial-scale=1.0, width=device-width', __source: {
+  }, 'Mercado Libre')), _react2.default.createElement('div', { className: 'container-site', __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
-    }
-  })), _react2.default.createElement('div', { className: 'container-site', __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 12
     }
   }, _react2.default.createElement(_Header2.default, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     }
   }), props.breadCrumb, _react2.default.createElement('div', { className: 'content', __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 15
     }
   }, props.children), _react2.default.createElement(_style2.default, {
     styleId: _style3.ResetCss.__hash,

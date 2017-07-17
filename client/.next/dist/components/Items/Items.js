@@ -79,7 +79,8 @@ var Items = function (_PureComponent) {
 
     _this.state = {
       items: [],
-      loading: true
+      loading: true,
+      errors: ''
     };
     return _this;
   }
@@ -91,82 +92,90 @@ var Items = function (_PureComponent) {
 
       this.setState({ loading: true });
       (0, _Resources.searchItems)(this.props.searchText).then(function (res) {
+        console.log(res);
         _this2.props.breadCrumbs(res.data.categories);
         _this2.setState({ items: res.data.items, loading: false });
+      }).catch(function (err) {
+        _this2.setState({ errors: true, items: [], loading: false });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      if (this.state.errors) return _react2.default.createElement(_NotFound2.default, { errors: this.state.errors, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        }
+      });
       if (this.state.loading) return _react2.default.createElement(_Loading2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 43
         }
       });
       if (this.state.items.length === 0) return _react2.default.createElement(_NotFound2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 44
         }
       });
       var cardList = this.state.items.map(function (item) {
         return _react2.default.createElement('div', { className: 'card-item', key: item.id, 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 46
           }
         }, _react2.default.createElement('figure', { className: 'card-item-image', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 47
           }
         }, _react2.default.createElement(_link2.default, { role: 'link', as: '/items/' + item.id, href: '/items?id=' + item.id, __source: {
             fileName: _jsxFileName,
-            lineNumber: 42
+            lineNumber: 48
           }
         }, _react2.default.createElement('img', { src: item.picture, alt: item.title, title: item.title, 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 49
           }
         }))), _react2.default.createElement('div', { className: 'card-item-description', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 52
           }
         }, _react2.default.createElement('div', { className: 'card-item-price', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 53
           }
         }, '$ ', item.price.decimals, ' ', _react2.default.createElement(FreeShipingIco, { free_shipping: item.free_shipping, __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 54
           }
         })), _react2.default.createElement('h2', { className: 'card-item-title', 'aria-label': item.title, 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 56
           }
         }, _react2.default.createElement(_link2.default, { role: 'link', as: '/items/' + item.id, href: '/items?id=' + item.id, __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 57
           }
         }, _react2.default.createElement('a', { className: 'card-item-title__link', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 58
           }
         }, item.title)))), _react2.default.createElement('div', { className: 'card-item-location', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 64
           }
         }, _react2.default.createElement('div', { className: 'card-item-location-name', 'data-jsx-ext': _style3.ItemsStyle.__scopedHash,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 65
           }
         }, item.address.state_name)), _react2.default.createElement(_style2.default, {
           styleId: _style3.ItemsStyle.__scopedHash,
@@ -176,7 +185,7 @@ var Items = function (_PureComponent) {
       return _react2.default.createElement('div', {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 70
         }
       }, cardList);
     }

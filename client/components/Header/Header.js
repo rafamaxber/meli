@@ -15,7 +15,7 @@ const Header = () => (
 const Logo = () => (
   <Link href="/">
     <a className="logo" role="link">
-      <img src="/static/img/Logo_ML.png" alt="Mercado Livre" title="Mercado Livre" />
+      <img src="/static/img/Logo_ML.png" alt="Mercado Libre" title="Mercado Libre" />
       <style jsx>{ LogoStyle }</style>
     </a>
   </Link>

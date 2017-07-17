@@ -59,7 +59,8 @@ var Item = function (_PureComponent) {
 
     _this.state = {
       item: {},
-      loading: true
+      loading: true,
+      errors: ''
     };
     return _this;
   }
@@ -72,97 +73,104 @@ var Item = function (_PureComponent) {
       this.setState({ loading: true });
       (0, _Resources.fetchItemById)(this.props.itemId).then(function (res) {
         _this2.setState({ item: res.data.item, loading: false });
+      }).catch(function (err) {
+        _this2.setState({ errors: true, items: [], loading: false });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      if (this.state.errors) return _react2.default.createElement(_NotFound2.default, { errors: this.state.errors, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        }
+      });
       if (this.state.loading) return _react2.default.createElement(_Loading2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 32
         }
       });
       if (!this.state.item) return _react2.default.createElement(_NotFound2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 33
         }
       });
       return _react2.default.createElement('div', { className: 'card-hero-item', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 35
         }
       }, _react2.default.createElement('figure', { className: 'card-hero-item-image-container', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 37
         }
       }, _react2.default.createElement('img', { className: 'card-hero-item-image', src: this.state.item.picture, alt: this.state.item.title, title: this.state.item.title, 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 38
         }
       })), _react2.default.createElement('div', { className: 'card-hero-item-info', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 41
         }
       }, _react2.default.createElement('div', { className: 'card-item-sold-info', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 42
         }
       }, _react2.default.createElement('span', { className: 'card-item-condition', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 43
         }
       }, this.state.item.condition), _react2.default.createElement('span', { className: 'card-item-sold-quantity', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 44
         }
       }, ' - ', this.state.item.sold_quantity), _react2.default.createElement('span', { className: 'card-item-sold-text', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 45
         }
       }, ' vendidos')), _react2.default.createElement('h1', { className: 'card-hero-item-title', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 47
         }
       }, this.state.item.title), _react2.default.createElement('div', { className: 'card-hero-item-price', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 50
         }
       }, '$ ', this.state.item.price && this.state.item.price.decimals), _react2.default.createElement('div', { className: 'card-hero-item-shop-button', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 53
         }
       }, _react2.default.createElement('a', { className: 'shop-button', role: 'link', 'aria-label': 'Comprar', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 54
         }
       }, 'Comprar'))), _react2.default.createElement('div', { className: 'card-hero-item-description', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 58
         }
       }, _react2.default.createElement('h2', { className: 'card-hero-item-description-title', 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 59
         }
       }, 'Description del producto'), _react2.default.createElement('div', { className: 'card-hero-item-description-text', dangerouslySetInnerHTML: { __html: this.state.item.description }, 'data-jsx-ext': _style3.ItemStyle.__scopedHash,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 62
         }
       })), _react2.default.createElement(_style2.default, {
         styleId: _style3.ItemStyle.__scopedHash,

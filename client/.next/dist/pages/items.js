@@ -54,26 +54,24 @@ var _jsxFileName = '/home/rafael/Projects/meli/client/pages/items.js?entry';
 
 
 var SelectComponent = function SelectComponent(props) {
-
   if (props.urlQuery.search) {
     return _react2.default.createElement(_Items2.default, { searchText: props.urlQuery.search, breadCrumbs: props.breadCrumb, __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 10
       }
     });
   }
   if (props.urlQuery.id) {
     return _react2.default.createElement(_Item2.default, { itemId: props.urlQuery.id, __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 13
       }
     });
   }
-
   return _react2.default.createElement(_NotFound2.default, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 15
     }
   });
 };
@@ -102,19 +100,19 @@ var Layout = function (_PureComponent) {
     value: function render() {
       return _react2.default.createElement(_MainLayout2.default, { breadCrumb: _react2.default.createElement(_BreadCrumbs2.default, { steps: this.state.steps, __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 32
           }
         }), __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 32
         }
       }, _react2.default.createElement('div', { className: 'limits', __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 33
         }
       }, _react2.default.createElement(SelectComponent, { breadCrumb: this.breadCrumbSteps.bind(this), urlQuery: this.props.url.query, __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 34
         }
       })));
     }

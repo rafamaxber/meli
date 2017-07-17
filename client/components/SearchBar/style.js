@@ -5,7 +5,7 @@ export const SearchBarStyle = `
     max-width: 900px;
     vertical-align: middle;
     left: 26px;
-    width: 100%;
+    width: 90%;
     position: relative;
   }
   .search_input {
@@ -14,6 +14,11 @@ export const SearchBarStyle = `
     width: 95.5%;
     border: none;
     border-radius: ${variables.borderRadius} 0 0 ${variables.borderRadius};
+  }
+  @media (max-width: 939px) {
+    .search_input {
+      width: 85%;
+    }
   }
   .search_input::placeholder {
     font-size: 18px;

@@ -20,20 +20,26 @@ class Items extends PureComponent {
     super(props)
     this.state = {
       items: [],
-      loading: true
+      loading: true,
+      errors: ''
     }
   }
-  
+
   componentDidMount() {
     this.setState({ loading: true })
     searchItems(this.props.searchText)
       .then(res => {
+        console.log(res)
         this.props.breadCrumbs(res.data.categories)
         this.setState({ items: res.data.items, loading: false })
+      })
+      .catch(err => {
+        this.setState({ errors: true, items: [], loading: false })
       })
   }
 
   render() {
+    if (this.state.errors) return <NotFound errors={this.state.errors} />
     if (this.state.loading) return <Loading />
     if (this.state.items.length === 0) return <NotFound />
     let cardList = this.state.items.map(( item ) => (

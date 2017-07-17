@@ -5,22 +5,17 @@ import Items from '../components/Items/Items'
 import NotFound from '../components/Items/NotFound'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 
-
-
 const SelectComponent = (props) => {
-  
   if (props.urlQuery.search) {
     return <Items searchText={props.urlQuery.search} breadCrumbs={props.breadCrumb}/>
   }
   if (props.urlQuery.id) {
     return <Item itemId={props.urlQuery.id} />
   }
-
   return <NotFound />
 }
 
 class Layout extends PureComponent {
-  
   constructor(props) {
     super(props)
     this.state = {
@@ -41,8 +36,7 @@ class Layout extends PureComponent {
       </MainLayout>
     )
   }
+  
 }
-
-
 
 export default Layout
