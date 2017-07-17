@@ -1,21 +1,48 @@
-import Link from 'next/link'
-import MainLayout from '../components/MainLayout'
-import axios from 'axios'
+import { PureComponent } from 'react'
+import MainLayout from '../components/MainLayout/MainLayout'
+import Item from '../components/Items/Item'
+import Items from '../components/Items/Items'
+import NotFound from '../components/Items/NotFound'
+import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 
-const Items = (props) => (
-  <MainLayout>
-    <p>ITEMS</p>
-    <Link href="/about">
-      <a>{props.data.author.name}</a>
-    </Link>
-  </MainLayout>
-)
 
-Items.getInitialProps = async function (context) {
-  const { id } = context.query
-  const res = await axios.get(`http://localhost:4040/api/items/${id}`);
-  // Return properties
-  return { data: res.data }
+
+const SelectComponent = (props) => {
+  
+  if (props.urlQuery.search) {
+    return <Items searchText={props.urlQuery.search} breadCrumbs={props.breadCrumb}/>
+  }
+  if (props.urlQuery.id) {
+    return <Item itemId={props.urlQuery.id} />
+  }
+
+  return <NotFound />
 }
 
-export default Items
+class Layout extends PureComponent {
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      steps: []
+    }
+  }
+
+  breadCrumbSteps(steps) {
+    this.setState({ steps: steps })
+  }
+
+  render() {
+    return (
+      <MainLayout breadCrumb={ <BreadCrumbs steps={this.state.steps}/> }>
+        <div className="limits">
+          <SelectComponent breadCrumb={this.breadCrumbSteps.bind(this)} urlQuery={this.props.url.query} />
+        </div>
+      </MainLayout>
+    )
+  }
+}
+
+
+
+export default Layout

@@ -4,84 +4,123 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _regenerator = require('babel-runtime/regenerator');
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _link = require('next/dist/lib/link.js');
-
-var _link2 = _interopRequireDefault(_link);
-
-var _MainLayout = require('../components/MainLayout');
+var _MainLayout = require('../components/MainLayout/MainLayout');
 
 var _MainLayout2 = _interopRequireDefault(_MainLayout);
 
-var _axios = require('axios');
+var _Item = require('../components/Items/Item');
 
-var _axios2 = _interopRequireDefault(_axios);
+var _Item2 = _interopRequireDefault(_Item);
+
+var _Items = require('../components/Items/Items');
+
+var _Items2 = _interopRequireDefault(_Items);
+
+var _NotFound = require('../components/Items/NotFound');
+
+var _NotFound2 = _interopRequireDefault(_NotFound);
+
+var _BreadCrumbs = require('../components/BreadCrumbs/BreadCrumbs');
+
+var _BreadCrumbs2 = _interopRequireDefault(_BreadCrumbs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _jsxFileName = '/home/rafael/Projects/meli/client/pages/items.js?entry';
 
 
-var Items = function Items(props) {
-  return _react2.default.createElement(_MainLayout2.default, {
+var SelectComponent = function SelectComponent(props) {
+
+  if (props.urlQuery.search) {
+    return _react2.default.createElement(_Items2.default, { searchText: props.urlQuery.search, breadCrumbs: props.breadCrumb, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      }
+    });
+  }
+  if (props.urlQuery.id) {
+    return _react2.default.createElement(_Item2.default, { itemId: props.urlQuery.id, __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      }
+    });
+  }
+
+  return _react2.default.createElement(_NotFound2.default, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 19
     }
-  }, _react2.default.createElement('p', {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    }
-  }, 'ITEMS'), _react2.default.createElement(_link2.default, { href: '/about', __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    }
-  }, _react2.default.createElement('a', {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    }
-  }, props.data.author.name)));
+  });
 };
 
-Items.getInitialProps = function () {
-  var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(context) {
-    var id, res;
-    return _regenerator2.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            id = context.query.id;
-            _context.next = 3;
-            return _axios2.default.get('http://localhost:4040/api/items/' + id);
+var Layout = function (_PureComponent) {
+  (0, _inherits3.default)(Layout, _PureComponent);
 
-          case 3:
-            res = _context.sent;
-            return _context.abrupt('return', { data: res.data });
+  function Layout(props) {
+    (0, _classCallCheck3.default)(this, Layout);
 
-          case 5:
-          case 'end':
-            return _context.stop();
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Layout.__proto__ || (0, _getPrototypeOf2.default)(Layout)).call(this, props));
+
+    _this.state = {
+      steps: []
+    };
+    return _this;
+  }
+
+  (0, _createClass3.default)(Layout, [{
+    key: 'breadCrumbSteps',
+    value: function breadCrumbSteps(steps) {
+      this.setState({ steps: steps });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_MainLayout2.default, { breadCrumb: _react2.default.createElement(_BreadCrumbs2.default, { steps: this.state.steps, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          }
+        }), __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
         }
-      }
-    }, _callee, this);
-  }));
+      }, _react2.default.createElement('div', { className: 'limits', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        }
+      }, _react2.default.createElement(SelectComponent, { breadCrumb: this.breadCrumbSteps.bind(this), urlQuery: this.props.url.query, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        }
+      })));
+    }
+  }]);
 
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}();
+  return Layout;
+}(_react.PureComponent);
 
-exports.default = Items;
+exports.default = Layout;

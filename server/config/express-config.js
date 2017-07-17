@@ -1,30 +1,34 @@
 const express = require('express');
 const consign = require('consign');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-const expressValidator = require('express-validator');
 const morgan = require('morgan');
 const Logger = require('../services/Logger');
-const dotenv = require('dotenv').config();
 
 module.exports = () => {
   const app = express();
   
-  //add morgan midleware
   app.use(morgan('common', {
     stream: {
-      write: (message) => Logger.info( message )
+      write: (message) => Logger.info(message)
     }
   }));
-  // parse application/x-www-form-urlencoded
-  app.use( bodyParser.urlencoded({ extended: false }) );
-  // parse application/json
-  app.use( bodyParser.json() );
-  // aplly midleware validator in all requisition
-  app.use(expressValidator());
+  
+  app.use((req, res, next) => {
+    res.removeHeader("X-Powered-By");
+    next();
+  });
+
+  app.use(cors());
+  
+  app.use(bodyParser.urlencoded({ extended: false }));
+  
+  app.use(bodyParser.json());
+  
   
   consign()
-    .include('controller')
-    .then('services')
+    .include('services')
+    .then('controllers')
     .then('routes')
     .into(app);
     

@@ -1,0 +1,13 @@
+{
+  "name": "meli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm run init:client && npm run init:server",
+    "init:client": "npm install ./client/",
+    "init:server": "npm install ./server/"
+  },
+  "author": "Rafael Bernardo <rafamaxber@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,22 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.LogoStyle = exports.HeaderStyle = undefined;
+
+var _styleGlobal = require('../MainLayout/styleGlobal');
+
+var variables = _interopRequireWildcard(_styleGlobal);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var HeaderStyle = exports.HeaderStyle = new String('.main_header{padding:10px 0;background-color:' + variables.meliColor + '}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvSGVhZGVyL3N0eWxlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBLEFBR29CLGdCQUFtRCwrQ0FBRyIsImZpbGUiOiJjb21wb25lbnRzL0hlYWRlci9zdHlsZS5qcyIsInNvdXJjZVJvb3QiOiIvaG9tZS9yYWZhZWwvUHJvamVjdHMvbWVsaS9jbGllbnQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyB2YXJpYWJsZXMgZnJvbSAnLi4vTWFpbkxheW91dC9zdHlsZUdsb2JhbCdcblxuZXhwb3J0IGNvbnN0IEhlYWRlclN0eWxlID0gYFxuICAubWFpbl9oZWFkZXIge1xuICAgIHBhZGRpbmc6IDEwcHggMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke3ZhcmlhYmxlcy5tZWxpQ29sb3J9O1xuICB9XG5gXG5cbmV4cG9ydCBjb25zdCBMb2dvU3R5bGUgPSBgXG4gIC5sb2dvIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgZm9udC1zaXplOiAwO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIH1cbmAiXX0= */\n/*@ sourceURL=components/Header/style.js */');
+
+HeaderStyle.__hash = '11278019318';
+HeaderStyle.__scoped = '.main_header[data-jsx-ext~="21278019318"]{padding:10px 0;background-color:' + variables.meliColor + '}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvSGVhZGVyL3N0eWxlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBLEFBR29CLGdCQUFtRCwrQ0FBRyIsImZpbGUiOiJjb21wb25lbnRzL0hlYWRlci9zdHlsZS5qcyIsInNvdXJjZVJvb3QiOiIvaG9tZS9yYWZhZWwvUHJvamVjdHMvbWVsaS9jbGllbnQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyB2YXJpYWJsZXMgZnJvbSAnLi4vTWFpbkxheW91dC9zdHlsZUdsb2JhbCdcblxuZXhwb3J0IGNvbnN0IEhlYWRlclN0eWxlID0gYFxuICAubWFpbl9oZWFkZXIge1xuICAgIHBhZGRpbmc6IDEwcHggMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke3ZhcmlhYmxlcy5tZWxpQ29sb3J9O1xuICB9XG5gXG5cbmV4cG9ydCBjb25zdCBMb2dvU3R5bGUgPSBgXG4gIC5sb2dvIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgZm9udC1zaXplOiAwO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIH1cbmAiXX0= */\n/*@ sourceURL=components/Header/style.js */';
+HeaderStyle.__scopedHash = '21278019318';
+var LogoStyle = exports.LogoStyle = new String('.logo{display:inline-block;font-size:0;vertical-align:middle}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvSGVhZGVyL3N0eWxlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVNBLEFBRzBCLHNCQUFpQixhQUEyQix1QkFBRyIsImZpbGUiOiJjb21wb25lbnRzL0hlYWRlci9zdHlsZS5qcyIsInNvdXJjZVJvb3QiOiIvaG9tZS9yYWZhZWwvUHJvamVjdHMvbWVsaS9jbGllbnQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyB2YXJpYWJsZXMgZnJvbSAnLi4vTWFpbkxheW91dC9zdHlsZUdsb2JhbCdcblxuZXhwb3J0IGNvbnN0IEhlYWRlclN0eWxlID0gYFxuICAubWFpbl9oZWFkZXIge1xuICAgIHBhZGRpbmc6IDEwcHggMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke3ZhcmlhYmxlcy5tZWxpQ29sb3J9O1xuICB9XG5gXG5cbmV4cG9ydCBjb25zdCBMb2dvU3R5bGUgPSBgXG4gIC5sb2dvIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgZm9udC1zaXplOiAwO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIH1cbmAiXX0= */\n/*@ sourceURL=components/Header/style.js */');
+LogoStyle.__hash = '11841256868';
+LogoStyle.__scoped = '.logo[data-jsx-ext~="21841256868"]{display:inline-block;font-size:0;vertical-align:middle}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvSGVhZGVyL3N0eWxlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVNBLEFBRzBCLHNCQUFpQixhQUEyQix1QkFBRyIsImZpbGUiOiJjb21wb25lbnRzL0hlYWRlci9zdHlsZS5qcyIsInNvdXJjZVJvb3QiOiIvaG9tZS9yYWZhZWwvUHJvamVjdHMvbWVsaS9jbGllbnQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyB2YXJpYWJsZXMgZnJvbSAnLi4vTWFpbkxheW91dC9zdHlsZUdsb2JhbCdcblxuZXhwb3J0IGNvbnN0IEhlYWRlclN0eWxlID0gYFxuICAubWFpbl9oZWFkZXIge1xuICAgIHBhZGRpbmc6IDEwcHggMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke3ZhcmlhYmxlcy5tZWxpQ29sb3J9O1xuICB9XG5gXG5cbmV4cG9ydCBjb25zdCBMb2dvU3R5bGUgPSBgXG4gIC5sb2dvIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgZm9udC1zaXplOiAwO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIH1cbmAiXX0= */\n/*@ sourceURL=components/Header/style.js */';
+LogoStyle.__scopedHash = '21841256868';

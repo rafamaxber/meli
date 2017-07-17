@@ -12,7 +12,7 @@ app.prepare()
   server.get('/items/:id', (req, res) => {
     const actualPage = '/items'
     const queryParams = { id: req.params.id } 
-    app.render(req, res, actualPage, queryParams)
+    return app.render(req, res, actualPage, queryParams)
   })
 
   server.get('*', (req, res) => {
